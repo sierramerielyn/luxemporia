@@ -904,7 +904,7 @@ ul {
         max-width: 90%;
     }
 
-    .vouches-links {
+    .vouch-links {
         flex-direction: column;
         gap:10px;
         color: white;
@@ -958,6 +958,7 @@ ul {
     }
 
 }
+
 
 
 
