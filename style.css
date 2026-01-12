@@ -898,13 +898,7 @@ ul {
         font-size: 0.8rem;
     }
 
-    .vouch-container {
-        height: 620px;
-        width: 350px;
-        max-width: 90%;
-    }
-
-
+ 
     .app-section {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 1.5rem;
@@ -924,13 +918,14 @@ ul {
     }
 
     .top {
-        height: 140px; /* FIXED HEIGHT */
+        height: 140px; 
     }
 
     .top img {
         width: 100%;
-        height: 100%;
+        height: auto;
         object-fit: cover;
+        display: block;
     }
 
     .orderhere h2 {
@@ -953,6 +948,7 @@ ul {
     }
 
 }
+
 
 
 
