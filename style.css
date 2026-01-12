@@ -871,6 +871,18 @@ ul {
         text-align: left;
     }
 
+         .top { 
+        width: 100%;
+        height: 180px; 
+        overflow: hidden;
+    }
+
+    .top img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
     .footer1 img {
         margin: 0 auto 13px;
     }
@@ -947,20 +959,11 @@ ul {
         font-size: 1rem; 
     }
 
-     .top { 
-        width: 100%;
-        height: 180px; 
-        overflow: hidden;
-    }
 
-    .top img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
 
 
 }
+
 
 
 
