@@ -61,14 +61,22 @@ document.addEventListener("DOMContentLoaded", () => {
     ========================= */
     let slideIndex = 0;
     const slides = document.querySelectorAll(".slides");
+
     function showSlides() {
-        if (slides.length === 0) return;
-        slides.forEach(s => s.style.display = "none");
+        slides.forEach(slide => {
+            slide.style.opacity = "0";
+            slide.style.position = "absolute";
+        });
+
         slideIndex++;
         if (slideIndex > slides.length) slideIndex = 1;
-        slides[slideIndex - 1].style.display = "block";
+
+        slides[slideIndex - 1].style.opacity = "1";
+        slides[slideIndex - 1].style.position = "relative";
     }
+
     if (slides.length > 0) {
+        showSlides();
         setInterval(showSlides, 4000);
     }
 
@@ -149,4 +157,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
 
