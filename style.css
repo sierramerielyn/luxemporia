@@ -131,6 +131,7 @@ body {
     flex-direction: column;
     background: #2b1d2d;
     padding: 1rem;
+    font-family: "Gabarito", sans-serif;
 }
 
 .mobile-nav a {
@@ -506,7 +507,7 @@ ul {
     margin: 40px 0;
 }
 
-.vouch .headings {
+.vouches .headings {
     text-align: center;
     font-size: 2.2rem;
     margin-bottom: 40px;
@@ -897,13 +898,13 @@ ul {
         font-size: 0.8rem;
     }
 
-    .vouch-container {
+    .vouches-container {
         height: 620px;
         width: 350px;
         max-width: 90%;
     }
 
-    .vouch-links {
+    .vouches-links {
         flex-direction: column;
         gap:10px;
         color: white;
@@ -927,6 +928,16 @@ ul {
         height: auto;
     }
 
+    .top {
+        height: 140px; /* FIXED HEIGHT */
+    }
+
+    .top img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
     .orderhere h2 {
         font-size: 0.8rem;
         margin: 1.8rem;
@@ -939,7 +950,6 @@ ul {
     }
 
     .back a {
-    
         padding: 10px 18px;
         border-radius: 10px;
         gap: 4rem;
@@ -948,6 +958,7 @@ ul {
     }
 
 }
+
 
 
 
