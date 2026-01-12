@@ -176,8 +176,8 @@ body {
 
 .container2{ 
     padding-bottom: 40px;
-   
     margin-top: 2rem;
+    scroll-margin-top: 100px;
 } 
 
 .heading { 
@@ -276,15 +276,29 @@ html {
     scroll-behavior: smooth;
 }
 
-.container2 {
-    scroll-margin-top: 80px;
-}
-
-
 .cat-btn {
     text-decoration: none;
     display: inline-block;
-    /* keep your existing cat-btn styles here */
+    text-decoration: none;
+    color: inherit;     
+    display: inline-block;
+    background: white;
+        border: none;
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-family: "Gabarito";
+        flex-shrink: 0;
+        cursor: pointer;
+}
+
+cat-btn:visited {
+    color: inherit;
+}
+
+.cat-btn:hover {
+    background-color: #555; 
+    color: #ffffff;
 }
 
 .footer {
@@ -868,17 +882,6 @@ ul {
         white-space: nowrap;
     }
 
-    .cat-btn {
-        background: white;
-        border: none;
-        padding: 8px 18px;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        font-family: "Gabarito";
-        flex-shrink: 0;
-        cursor: pointer;
-    }
-
      .footer .row {
         flex-direction: row;
         flex-wrap: wrap;
@@ -963,6 +966,7 @@ ul {
     }
 
 }
+
 
 
 
