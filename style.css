@@ -272,6 +272,21 @@ body {
     display: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+.container2 {
+    scroll-margin-top: 80px;
+}
+
+
+.cat-btn {
+    text-decoration: none;
+    display: inline-block;
+    /* keep your existing cat-btn styles here */
+}
+
 .footer {
     background: #111;
     color: #c5c5c5;
@@ -948,6 +963,7 @@ ul {
     }
 
 }
+
 
 
 
