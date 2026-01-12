@@ -898,17 +898,12 @@ ul {
         font-size: 0.8rem;
     }
 
-    .vouches-container {
+    .vouch-container {
         height: 620px;
         width: 350px;
         max-width: 90%;
     }
 
-    .vouch-links {
-        flex-direction: column;
-        gap:10px;
-        color: white;
-    }
 
     .app-section {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -958,6 +953,7 @@ ul {
     }
 
 }
+
 
 
 
