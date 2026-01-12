@@ -72,6 +72,25 @@ document.addEventListener("DOMContentLoaded", () => {
         setInterval(showSlides, 4000);
     }
 
+
+      /* =========================
+       MOBILE CATEGORY BUTTONS
+    ========================= */
+    document.querySelectorAll(".cat-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const target = btn.dataset.cat;
+            const section = document.getElementById(target);
+            if (!section) return;
+
+            section.scrollIntoView({ behavior: "smooth" });
+
+            const loadBtn = section.querySelector(".load-more");
+            if (loadBtn && loadBtn.style.display !== "none") {
+                loadAllCards(target);
+            }
+        });
+    });
+
     /* =========================
          SEARCH
     ========================= */
@@ -130,3 +149,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
