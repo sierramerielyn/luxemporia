@@ -507,6 +507,12 @@ ul {
     margin: 40px 0;
 }
 
+.vouch .headings {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
 
 
 .vouch-track {
@@ -953,6 +959,7 @@ ul {
     }
 
 }
+
 
 
 
