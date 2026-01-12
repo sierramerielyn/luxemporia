@@ -1,7 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================
-       MOBILE MENU TOGGLE
+     PRODUCT LIST
+    ========================= */
+    const productData = [
+        { name: "Netflix", img: "NETFLIX.jpg", link: "price.html#netflix" },
+        { name: "Spotify Premium", img: "SPOTIFY.jpg", link: "price.html#spotify" },
+        { name: "HBO Max", img: "HBOMAX.jpg", link: "price.html#hbo" },
+        { name: "Viu", img: "VIU.jpg", link: "price.html#viu" },
+        { name: "Crunchyroll", img: "CRUNCHYROLL.jpg", link: "price.html#crunchyroll" },
+        { name: "Disney Plus", img: "DISNEY.jpg", link: "price.html#disney" },
+        { name: "Viva Max", img: "VMX.png", link: "price.html#viva" },
+        { name: "YouTube", img: "YOUTUBE.jpg", link: "price.html#youtube" },
+        { name: "LokLok", img: "LOKLOK.png", link: "price.html#loklok" },
+        { name: "Apple Music", img: "APPLE.png", link: "price.html#apple" },
+        { name: "Duolingo", img: "DUO.jpg", link: "price.html#duolingo" },
+        { name: "Microsoft 365", img: "M365.jpg", link: "price.html#m365" },
+        { name: "Quizlet", img: "QUIZLET.jpg", link: "price.html#quizlet" },
+        { name: "Scribd", img: "SCRIBD.jpg", link: "price.html#scribd" },
+        { name: "Zoom Pro", img: "ZOOM.jpg", link: "price.html#zoom" },
+        { name: "ChatGPT", img: "CHATGPT.jpg", link: "price.html#chatgpt" },
+        { name: "Gemini AI", img: "GEMINI.jpg", link: "price.html#gemini" },
+        { name: "Canva", img: "CANVA.png", link: "price.html#canva" },
+        { name: "CapCut Pro", img: "CAPCUT.jpg", link: "price.html#capcut" },
+        { name: "PasaData", img: "pasadata.png", link: "price.html#pasadata" }
+    ];
+
+    /* =========================
+        MOBILE MENU TOGGLE
     ========================= */
     const menuBtn = document.getElementById("menuBtn");
     const mobileNav = document.getElementById("mobileNav");
@@ -12,32 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    /* =========================
-       SLIDESHOW (FADE IN / OUT)
-    ========================= */
-    let slideIndex = 0;
-    const slides = document.querySelectorAll(".slides");
-
-    function showSlides() {
-        slides.forEach(slide => {
-            slide.style.opacity = "0";
-            slide.style.position = "absolute";
-        });
-
-        slideIndex++;
-        if (slideIndex > slides.length) slideIndex = 1;
-
-        slides[slideIndex - 1].style.opacity = "1";
-        slides[slideIndex - 1].style.position = "relative";
-    }
-
-    if (slides.length > 0) {
-        showSlides();
-        setInterval(showSlides, 4000);
-    }
-
-
-    /* =========================
+      /* =========================
        MOBILE CATEGORY BUTTONS
     ========================= */
     document.querySelectorAll(".cat-btn").forEach(btn => {
@@ -55,18 +56,35 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    /* =========================
+       SLIDESHOW 
+    ========================= */
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slides");
+    function showSlides() {
+        if (slides.length === 0) return;
+        slides.forEach(s => s.style.display = "none");
+        slideIndex++;
+        if (slideIndex > slides.length) slideIndex = 1;
+        slides[slideIndex - 1].style.display = "block";
+    }
+    if (slides.length > 0) {
+        setInterval(showSlides, 4000);
+    }
 
     /* =========================
-   SEARCH FILTER 
-========================= */
-const searchInput = document.querySelector(".search input");
-
+         SEARCH
+    ========================= */
+    const searchInput = document.querySelector(".search input");
+    
+    // Create Results Box if it doesn't exist
     let resultsBox = document.getElementById("searchResults");
     if (!resultsBox) {
         resultsBox = document.createElement("div");
         resultsBox.id = "searchResults";
         resultsBox.className = "search-results";
-        document.body.appendChild(resultsBox);
+        // Append it to the search div so it stays positioned
+        document.querySelector(".search").appendChild(resultsBox);
     }
 
     if (searchInput) {
@@ -79,38 +97,36 @@ const searchInput = document.querySelector(".search input");
                 return;
             }
 
-            const items = document.querySelectorAll(".products");
-            let found = false;
+            // Search through our productData array
+            const matches = productData.filter(item => 
+                item.name.toLowerCase().includes(query)
+            );
 
-            items.forEach(item => {
-                const name = item.querySelector("h3")?.innerText.toLowerCase();
-                if (name && name.includes(query)) {
-                    found = true;
-
-                    const img = item.querySelector("img")?.src || "";
-                    const link = item.closest("a")?.href || "#";
-
+            if (matches.length > 0) {
+                matches.forEach(item => {
                     const div = document.createElement("div");
                     div.className = "search-item";
                     div.innerHTML = `
-                        <img src="${img}">
-                        <span>${item.querySelector("h3").innerText}</span>
+                        <img src="${item.img}" alt="${item.name}">
+                        <span>${item.name}</span>
                     `;
-
-                    div.onclick = () => window.location.href = link;
+                    // When clicked, go to the page and the specific ID
+                    div.onclick = () => {
+                        window.location.href = item.link;
+                    };
                     resultsBox.appendChild(div);
-                }
-            });
-
-            resultsBox.classList.toggle("show", found);
+                });
+                resultsBox.classList.add("show");
+            } else {
+                resultsBox.classList.remove("show");
+            }
         });
     }
 
-    document.addEventListener("click", e => {
-        if (!e.target.closest(".search") && !e.target.closest(".search-results")) {
+    
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".search")) {
             resultsBox.classList.remove("show");
         }
     });
-
 });
-
